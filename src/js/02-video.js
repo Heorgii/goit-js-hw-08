@@ -12,10 +12,7 @@ const onPlay = function (data) {
 
 player.on('timeupdate', throttle(onPlay, 1000));
 
-function resumePlayback() {
-    if (JSON.parse(localStorage.getItem(TIME_KEY)) === null) {
-        return;
-    }
+function resumePlay() {
 
     const paused = JSON.parse(localStorage.getItem(TIME_KEY))['seconds'];
 
@@ -31,5 +28,6 @@ function resumePlayback() {
                 }
             });
     }
+
 }
-resumePlayback();
+resumePlay();
