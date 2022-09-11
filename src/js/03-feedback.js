@@ -1,4 +1,3 @@
-import '../css/common.css';
 import throttle from 'lodash.throttle';
 
 const STORAGE_KEY = 'feedback-form-state';
@@ -6,8 +5,8 @@ const STORAGE_KEY = 'feedback-form-state';
 const refs = {
     form: document.querySelector('.feedback-form'),
     textarea: document.querySelector('textarea'),
-    input: document.querySelector('[type="email"]'),
-    submitBtn: document.querySelector('[type="submit"]'),
+    input: document.querySelector('input'),//[type="email"]
+    submitBtn: document.querySelector('button'),//[type="submit"]
 };
 
 const formData = {};
@@ -37,7 +36,7 @@ function updateTextarea() {
     const saveData = JSON.parse(data);
     if (saveData) {
         refs.input.value = formData.email || '';
-        refs.textarea.target.value = formData.message || '';
+        refs.textarea.value = formData.message || '';
     }
 
     return;
