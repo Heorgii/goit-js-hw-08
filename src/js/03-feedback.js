@@ -38,4 +38,5 @@ function updateTextarea() {
         refs.input.value = formData.email || '';
         refs.textarea.value = formData.message || '';
     }
+    
 }
