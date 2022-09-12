@@ -9,7 +9,7 @@ const refs = {
     submitBtn: document.querySelector('button'),
 };
 
-const formData = {};
+let formData = {};
 
 updateTextarea();
 
@@ -33,11 +33,9 @@ function formSubmit(e) {
 
 function updateTextarea() {
     const data = localStorage.getItem(STORAGE_KEY);
-    const saveData = JSON.parse(data);
-    if (saveData) {
+    formData = JSON.parse(data);
+    if (data) {
         refs.input.value = formData.email || '';
         refs.textarea.value = formData.message || '';
     }
-
-    return;
 }
