@@ -17,8 +17,9 @@ refs.form.addEventListener('input', throttle(inputText, 500));
 refs.form.addEventListener('submit', formSubmit);
 
 function inputText(e) {
-    e.preventDefault();
+    // e.preventDefault();
     formData[e.target.name] = e.target.value;
+    // console.log(formData);
     const stringifiedData = JSON.stringify(formData);
     localStorage.setItem(STORAGE_KEY, stringifiedData);
 }
@@ -33,8 +34,9 @@ function formSubmit(e) {
 
 function updateTextarea() {
     const data = localStorage.getItem(STORAGE_KEY);
-    formData = JSON.parse(data);
     if (data) {
+        formData = JSON.parse(data);
+        // console.log(formData);
         refs.input.value = formData.email || '';
         refs.textarea.value = formData.message || '';
     }
